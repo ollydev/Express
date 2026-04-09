@@ -10,7 +10,7 @@ uses
   {$IFDEF UNIX}
   cthreads,
   {$ENDIF}
-  SysUtils, Variants,
+  Classes, SysUtils, Variants, Process, DateUtils,
   xpr.Utils,
   xpr.Types,
   xpr.Express,
@@ -20,7 +20,7 @@ uses
   {$ENDIF};
 
 const
-  TrackMemoryAllocCount = True;
+  TrackMemoryAllocCount = False;
 
 var
   MemTracking: record
@@ -142,6 +142,49 @@ begin
   ReadLn;
 end;
 
+procedure RunBench(ScriptFile: String);
+
+  function getCpu(): String;
+  begin
+    RunCommand('wmic', ['cpu', 'get', 'name', '/value'], Result);
+    Result := Copy(Trim(Result), Length('Name=')+1);
+  end;
+
+  function getUnixTime(): Int64;
+  begin
+    Result := DateTimeToUnix(Now(), False);
+  end;
+
+var Script: TExpress;
+var RunTime: Double;
+begin
+  Script := TExpress.Create();
+  Script.CompileFile(ScriptFile);
+
+  RunTime := MarkTime();
+  Script.Run();
+  RunTime := MarkTime() - RunTime;
+
+  with TStringList.Create() do
+  try
+    LoadFromFile('benches.txt');
+
+    Add('{');
+    Add('  "date": ' + IntToStr(getUnixTime()));
+    Add('  "cpu": "' + getCpu() + '",');
+    Add('  "benchmark": "' + ExtractFileName(ScriptFile) + '",');
+    Add('  "result": ' + IntToStr(Round(RunTime)));
+    Add('  "commit": "' + {$INCLUDE %GITHUB_SHORT_SHA%} + '"');
+    Add('},');
+
+    SaveToFile('benches.txt');
+  finally
+    Free();
+  end;
+
+  Script.Free();
+end;
+
 begin
   if TrackMemoryAllocCount then
   begin
@@ -161,8 +204,11 @@ begin
   FormatSettings.DecimalSeparator := '.';
   FormatSettings.ThousandSeparator := ',';
 
-  if (ParamCount() > 0) and (ParamStr(1) = '-p') then
-    RunPascalScript()
-  else
-    RunTests();
+  //RunBench('examples/scimark.xpr');
+  RunBench('examples/bench_scimark.xpr');
+
+  //if (ParamCount() > 0) and (ParamStr(1) = '-p') then
+  //  RunPascalScript()
+  //else
+  //  RunTests();
 end.

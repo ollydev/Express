@@ -1,0 +1,124 @@
+{
+  "UnixTime": 1775753191
+  "Cpu": "13th Gen Intel(R) Core(TM) i5-13600K",
+  "Benchmark": "scimark.xpr",
+  "RunTime": 31185
+},
+{
+  "UnixTime": 1775753718
+  "Cpu": "13th Gen Intel(R) Core(TM) i5-13600K",
+  "Benchmark": "scimark.xpr",
+  "RunTime": 31665
+},
+{
+  "date": 1775754225
+  "cpu": "13th Gen Intel(R) Core(TM) i5-13600K",
+  "benchmark": "scimark.xpr",
+  "result": 31286
+  "commit": 
+},
+{
+  "date": 1775754325
+  "cpu": "13th Gen Intel(R) Core(TM) i5-13600K",
+  "benchmark": "scimark.xpr",
+  "result": 26441
+  "commit": ""
+},
+{
+  "date": 1775754350
+  "cpu": "13th Gen Intel(R) Core(TM) i5-13600K",
+  "benchmark": "scimark.xpr",
+  "result": 28146
+  "commit": ""
+},
+{
+  "date": 1775754486
+  "cpu": "13th Gen Intel(R) Core(TM) i5-13600K",
+  "benchmark": "lapeisfast.xpr",
+  "result": 23
+  "commit": ""
+},
+{
+  "date": 1775754722
+  "cpu": "13th Gen Intel(R) Core(TM) i5-13600K",
+  "benchmark": "bench_lapeisfast.xpr",
+  "result": 216
+  "commit": ""
+},
+{
+  "date": 1775754737
+  "cpu": "13th Gen Intel(R) Core(TM) i5-13600K",
+  "benchmark": "bench_lapeisfast.xpr",
+  "result": 3323
+  "commit": ""
+},
+{
+  "date": 1775754827
+  "cpu": "13th Gen Intel(R) Core(TM) i5-13600K",
+  "benchmark": "bench_shellsort.xpr",
+  "result": 349
+  "commit": ""
+},
+{
+  "date": 1775755040
+  "cpu": "13th Gen Intel(R) Core(TM) i5-13600K",
+  "benchmark": "bench_shellsort.xpr",
+  "result": 352
+  "commit": ""
+},
+{
+  "date": 1775755090
+  "cpu": "13th Gen Intel(R) Core(TM) i5-13600K",
+  "benchmark": "bench_shellsort.xpr",
+  "result": 734
+  "commit": ""
+},
+{
+  "date": 1775755127
+  "cpu": "13th Gen Intel(R) Core(TM) i5-13600K",
+  "benchmark": "bench_shellsort.xpr",
+  "result": 694
+  "commit": ""
+},
+{
+  "date": 1775755135
+  "cpu": "13th Gen Intel(R) Core(TM) i5-13600K",
+  "benchmark": "bench_shellsort.xpr",
+  "result": 731
+  "commit": ""
+},
+{
+  "date": 1775755147
+  "cpu": "13th Gen Intel(R) Core(TM) i5-13600K",
+  "benchmark": "bench_shellsort.xpr",
+  "result": 8731
+  "commit": ""
+},
+{
+  "date": 1775755177
+  "cpu": "13th Gen Intel(R) Core(TM) i5-13600K",
+  "benchmark": "bench_lapeisfast.xpr",
+  "result": 3377
+  "commit": ""
+},
+{
+  "date": 1775755196
+  "cpu": "13th Gen Intel(R) Core(TM) i5-13600K",
+  "benchmark": "bench_lapeisfast.xpr",
+  "result": 8383
+  "commit": ""
+},
+{
+  "date": 1775755715
+  "cpu": "13th Gen Intel(R) Core(TM) i5-13600K",
+  "benchmark": "bench_pidigits.xpr",
+  "result": 7151
+  "commit": ""
+},
+{
+  "date": 1775756300
+  "cpu": "13th Gen Intel(R) Core(TM) i5-13600K",
+  "benchmark": "bench_scimark.xpr",
+  "result": 30879
+  "commit": ""
+},

@@ -1,0 +1,52 @@
+func pidigits()
+  var n: int   = 10000
+  var len: int = 10 * n / 3
+  var i, j, k, nines, predigit: int = 0
+  var a, res: array of int = nil
+  var resCount: int = 0
+  
+  a.SetLen(len+1)
+  res.SetLen(n+1)
+  
+  var tm, tma:Double
+
+  for(j:=0; j<=len; j:=j+1) 
+    a[j] := 2  //Start with 2s
+  
+  for(j:=0; j<n; j:=j+1) do
+    var q: int = 0
+    for(i:=len; i>0; i -= 1) do         //Work backwards
+      var n:int = 10*a[i-1] + q*i
+      var d:int = (2 * i - 1)
+      a[i-1] := n % d
+      q      := n / d
+    
+    a[0] := q % 10
+    q    := q / 10
+    
+    if(q = 9) then
+      nines += 1
+    elif(q = 10) then
+      res[resCount] := predigit+1
+      resCount += 1
+      
+      for(k:=1; k<=nines; k+=1) do
+        res[resCount] := 0            //zeros
+        resCount += 1
+      
+      predigit := 0
+      nines := 0
+    else
+      res[resCount] := predigit
+      resCount += 1
+      predigit := q
+      if(nines != 0) then
+        for(k:=1; k<=nines; k+=1) do
+          res[resCount] := 9
+          resCount += 1
+        nines := 0
+
+  res[resCount] := predigit;
+
+
+pidigits()

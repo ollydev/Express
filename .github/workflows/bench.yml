@@ -1,0 +1,21 @@
+name: bench
+
+on:
+  workflow_run:
+    workflows:
+      - test
+    types:
+      - completed
+
+jobs:
+  benching:
+    runs-on: self-hosted
+    steps:
+      - uses: actions/checkout@v4.2.2
+      - name: Build
+        run: |
+          lazbuild --build-mode=Release64 main.lpi
+
+      - name: Run
+        run: |
+          ./main64
